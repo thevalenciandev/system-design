@@ -1,5 +1,7 @@
 package com.thevalenciandev.design.parkinglot;
 
+import com.thevalenciandev.design.parkinglot.model.LicensePlate;
+import com.thevalenciandev.design.parkinglot.model.Vehicle;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -15,8 +17,8 @@ public class ParkingLotTest {
 
         ParkingLot parkingLot = new ParkingLot(1);
 
-        assertThat(parkingLot.getTicketFor(Vehicle.car()), not(equalTo(Optional.empty())));
-        assertThat(parkingLot.getTicketFor(Vehicle.car()), equalTo(Optional.empty()));
+        assertThat(parkingLot.getTicketFor(Vehicle.car(LicensePlate.of("ABC"))), not(equalTo(Optional.empty())));
+        assertThat(parkingLot.getTicketFor(Vehicle.car(LicensePlate.of("DEF"))), equalTo(Optional.empty()));
     }
 
 }

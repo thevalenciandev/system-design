@@ -1,5 +1,8 @@
 package com.thevalenciandev.design.parkinglot;
 
+import com.thevalenciandev.design.parkinglot.model.Ticket;
+import com.thevalenciandev.design.parkinglot.model.Vehicle;
+
 import java.util.Optional;
 
 public class ParkingLot {
