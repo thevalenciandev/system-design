@@ -15,7 +15,7 @@ public class Vehicle {
         }
     }
 
-    public static Vehicle car(LicensePlate plate) {
+    public static Vehicle newCar(LicensePlate plate) {
         return new Car(plate);
     }
 }

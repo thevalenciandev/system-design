@@ -1,9 +1,8 @@
 package com.thevalenciandev.design.parkinglot;
 
+import com.thevalenciandev.design.parkinglot.exceptions.NoSpotsAvailableException;
 import com.thevalenciandev.design.parkinglot.model.Ticket;
 import com.thevalenciandev.design.parkinglot.model.Vehicle;
-
-import java.util.Optional;
 
 public class ParkingLot {
 
@@ -14,18 +13,21 @@ public class ParkingLot {
         this.carSpots = carSpots;
     }
 
-    public Optional<Ticket> getTicketFor(Vehicle vehicle) {
+    public Ticket newTicketFor(Vehicle vehicle) throws NoSpotsAvailableException {
 
         if (!(vehicle instanceof Vehicle.Car)) {
             throw new IllegalArgumentException("Only cars supported for now");
         }
 
         if (carSpotsTaken == carSpots) {
-            return Optional.empty();
+            throw new NoSpotsAvailableException();
         }
 
         carSpotsTaken++;
-        return Optional.of(new Ticket());
+        return new Ticket();
     }
 
+    public int carSpotsAvailable() {
+        return carSpots;
+    }
 }
